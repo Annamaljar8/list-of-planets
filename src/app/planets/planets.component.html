@@ -1,0 +1,18 @@
+<h2>Planets</h2>
+<ul class="planets">
+  <li *ngFor="let planet of planets; let i = index">
+    <a routerLink="detail/{{i}}" (click)="passIndexValue(i)">
+      <span class="badge">{{ planet.name }} {{ i }} </span>
+      </a>
+    </li>
+</ul>
+<app-pagination
+  [count]="countEl"
+  [page]="currentPage"
+  [perPage]="10"
+  [pagesToShow]="5"
+  [loading]="true"
+  (goPrev)="prevPage()"
+  (goNext)="nextPage()"
+  (goPage)="goToPage($event)">
+</app-pagination>

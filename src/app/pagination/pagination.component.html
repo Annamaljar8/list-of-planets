@@ -1,0 +1,9 @@
+<nav aria-label="Navigation">
+  <ul class="pagination" *ngIf="count > 0">
+    <li class="page-item"><a class="page-link cursor" (click)="onPrev()" [class.disabled]="page === 1 || loading">Previous</a></li>
+    <li class="page-item"><a class="page-link link cursor" *ngFor="let pageNum of getPages()" (click)="onPage(pageNum)">{{ pageNum }}</a></li>
+    <li class="page-item"><a class="page-link cursor" (click)="onNext()" [class.disabled]="lastPage() || loading">Next</a></li>
+  </ul>
+  <div><span>{{ getMin() }} of {{ getMax() }} of {{ count }}</span></div>
+  <div><span>{{ totalPages() }} pages</span></div>
+</nav>
